@@ -1,0 +1,76 @@
+<% content_for :title do %>
+    <%= t('.company_targets') %>
+<% end %>
+
+<% content_for :page_title do %>
+    <i class="icon-target"></i> <%= t('.company_targets') %>
+<% end %>
+
+<% content_for :page_toolbar do %>
+    <%= erp_component('button/create', {
+        text: t('.create'),
+        href: erp_targets.new_backend_company_target_path,
+        class: 'btn-noborder'
+    }) %>
+<% end %>
+
+<% content_for :global_filter do %>
+    <div class="row top-datalist">
+        <div class="col-md-3">
+            <%= erp_form_control("dataselect", {
+                name: 'period',
+                label: t('.filter_period'),
+                placeholder: t('.choose_period'),
+                url: erp_periods.dataselect_backend_periods_path(format: 'json'),
+            }) %>
+        </div>
+    </div>
+<% end %>
+
+<%= erp_datalist(
+    url: erp_targets.list_backend_company_targets_path,
+    keywords: [
+        {
+            text: t('creator'),
+            name: 'erp_users.name',
+            select: {
+                name: 'erp_users.id',
+                data_url: erp.dataselect_backend_users_path
+            }
+        }
+    ],
+    actions: [
+      
+    ],
+    filters: [
+        {
+            text: t('.active'), name: 'erp_targets_company_targets.status', value: Erp::Targets::CompanyTarget::STATUS_ACTIVE, checked: true
+        },
+        {
+            text: t('.deleted'), name: 'erp_targets_company_targets.status', value: Erp::Targets::CompanyTarget::STATUS_DELETED, checked: false
+        }
+    ],
+    columns: [
+        {
+            text: t('.name'), name: 'name', value: true, checked: true
+        },
+        {
+            text: t('.period'), name: 'period', value: true, checked: true
+        },
+        {
+            text: t('.amount'), name: 'amount', value: true, checked: true
+        },
+        {
+            text: t('.bonus_percent'), name: 'bonus_percent', value: true, checked: true
+        },
+        {
+            text: t('.status'), name: 'status', value: true, checked: true
+        },
+        {
+            text: t('.creator'), name: 'creator', value: true, checked: false
+        },
+        {
+            text: t('.created_at'), name: 'created_at', value: true, checked: false
+        }
+    ]
+) %>

@@ -1,0 +1,29 @@
+<% content_for :title do %>
+    <%= t('.edit') %>
+<% end %>
+
+<% content_for :page_title do %>    
+    <a href="<%= erp_targets.backend_targets_path %>">
+    <i class="icon-target"></i> <%= t('.targets') %>
+    </a> / <%= @target.salesperson_name %> - <%= @target.period_name %>
+<% end %>
+
+<% content_for :page_toolbar do %>
+    <%= erp_component('button/create', {
+        text: t('.create'),
+        href: erp_targets.new_backend_target_path,
+        class: 'btn-noborder'
+    }) %>
+<% end %>
+
+<div class="row">
+    <div class="col-md-12">
+        <% if @target.errors.any? %>
+            <%= erp_form_control("form_error_message") %>
+        <% end %>
+        
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <%= render 'form', target: @target %>
+        <!-- END SAMPLE FORM PORTLET-->
+    </div>
+</div>

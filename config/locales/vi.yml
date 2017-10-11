@@ -1,0 +1,131 @@
+vi:
+  erp:
+    targets:
+      backend:
+        targets:
+          create:
+            success: "Target nhân viên đã được thêm thành công"
+          update:
+            success: "Target nhân viên đã được cập nhật thành công"
+          set_active:
+            success: "Target nhân viên đã được kích hoạt thành công"
+          set_deleted:
+            success: "Target nhân viên đã được xóa thành công"
+          set_active_all:
+            success: "Target nhân viên đã được kích hoạt thành công"
+          set_deleted_all:
+            success: "Target nhân viên đã được xóa thành công"
+          index:
+            targets: "Target nhân viên"
+            filter_period: "Chu kỳ"
+            choose_period: "Chọn lọc theo chu kỳ"
+            filter_salesperson: "Nhân viên"
+            choose_salesperson: "Chọn lọc theo nhân viên"
+            create: "Thêm target nhân viên"
+            active: "Đang kích hoạt"
+            deleted: "Đã xóa"
+            salesperson: "Nhân viên"
+            period: "Chu kỳ"
+            amount: "Target cần đạt"
+            status: "Trạng thái"
+            creator: "Người tạo"
+            created_at: "Ngày tạo"
+          list:
+            salesperson: "Nhân viên"
+            period: "Chu kỳ"
+            amount: "Target cần đạt"
+            status: "Trạng thái"
+            creator: "Người tạo"
+            created_at: "Ngày tạo"
+            actions: "Hành động"
+            active: "Đang kích hoạt"
+            deleted: "Đã xóa"
+            no_matching_records_found: "Không tìm thấy target trong danh sách"
+            edit: "Chỉnh sửa"
+            delete: "Xóa target"
+          new:
+            targets: "Target nhân viên"
+            create: "Thêm target nhân viên"
+          edit:
+            targets: "Target nhân viên"
+            edit: "Chỉnh sửa"
+            create: "Thêm target nhân viên"
+          form:
+            salesperson: "Nhân viên"
+            choose_salesperson: "Chọn nhân viên cho target"
+            period: "Chu kỳ"
+            choose_period: "Chọn chu kỳ áp dụng cho target"
+            amount: "Số tiền"
+            help_amount: "Số tiền mục tiêu cần đạt"
+            placeholder_amount: "Nhập số tiền mục tiêu"
+            target_details: "Target chi tiết"
+            add_target_detail: "Thêm chi tiết"
+            submit: "Lưu"
+            cancel: "Hủy"
+        target_details:
+          target_line_form:
+            percent: "Phần trăm đạt target"
+            commission_amount: "Tiền thưởng tương ứng"
+        company_targets:
+          create:
+            success: "Target đã đươc thêm thành công"
+          update:
+            success: "Target đã được cập nhật thành công"
+          set_active:
+            success: "Target đã được kích hoạt thành công"
+          set_deleted:
+            success: "Target đã được xóa thành công"
+          set_active_all:
+            success: "Target đã được kích hoạt thành công"
+          set_deleted_all:
+            success: "Target đã được xóa thành công"
+          index:
+            company_targets: "Target công ty"
+            create: "Thêm target công ty"
+            filter_period: "Chu kỳ"
+            choose_period: "Chọn lọc theo chu kỳ"
+            active: "Đang kích hoạt"
+            deleted: "Đã xóa"
+            name: "Tên target"
+            period: "Chu kỳ"
+            amount: "Target cần đạt"
+            bonus_percent: "% trích thưởng NV"
+            status: "Trạng thái"
+            creator: "Người tạo"
+            created_at: "Ngày tạo"
+          list:
+            active: "Đang kích hoạt"
+            deleted: "Đã xóa"
+            name: "Tên target"
+            period: "Chu kỳ"
+            amount: "Target cần đạt"
+            bonus_percent: "% trích thưởng NV"
+            status: "Trạng thái"
+            creator: "Người tạo"
+            created_at: "Ngày tạo"
+            actions: "Hành động"
+            no_matching_records_found: "Không tìm thấy target trong danh sách"
+            edit: "Chỉnh sửa"
+            delete: "Xóa target"
+          new:
+            company_targets: "Target công ty"
+            create: "Thêm target công ty"
+          edit:
+            company_targets: "Target công ty"
+            edit: "Chỉnh sửa"
+            create: "Thêm target công ty"
+          form:
+            name: "Tên target"
+            help_name: "Tên target cho công ty"
+            placeholder_name: "Nhập tên target cho công ty"
+            period: "Chu kỳ"
+            choose_period: "Chọn chu kỳ áp dụng cho target"
+            amount: "Số tiền"
+            help_amount: "Số tiền mục tiêu cần đạt"
+            placeholder_amount: "Nhập số tiền mục tiêu"
+            bonus_percent: "Phần trăm trích thưởng"
+            help_bonus_percent: "Phần trăm trích thưởng cho nhân viên nếu đạt mục tiêu doanh thu"
+            placeholder_bonus_percent: "Nhập phần trăm trích thưởng"
+            submit: "Lưu"
+            cancel: "Hủy"
+            

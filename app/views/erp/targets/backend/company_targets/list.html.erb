@@ -1,0 +1,107 @@
+<table class="table table-advance table-hover table-striped table-checkable order-column" id="">
+    <thead>
+        <tr>
+            <th width='1%'>
+                <%= erp_datalist_check_all %>
+            </th>
+            <% if get_columns(params).include?("name") %>
+                <th>
+                    <%= t('.name') %>
+                </th>
+            <% end %>
+            <% if get_columns(params).include?("period") %>
+                <th>
+                    <%= t('.period') %>
+                </th>
+            <% end %>
+            <% if get_columns(params).include?("amount") %>
+                <th class="text-right sortable" sort-by='erp_targets_company_targets.amount'>
+                    <%= t('.amount') %>
+                </th>
+            <% end %>
+            <% if get_columns(params).include?("bonus_percent") %>
+                <th class="text-right sortable" sort-by='erp_targets_company_targets.bonus_percent'>
+                    <%= t('.bonus_percent') %>
+                </th>
+            <% end %>
+            <% if get_columns(params).include?("status") %>
+                <th class="text-center">
+                    <%= t('.status') %>
+                </th>
+            <% end %>
+            <% if get_columns(params).include?("creator") %>
+                <th class="text-center">
+                    <%= t('.creator') %>
+                </th>
+            <% end %>
+            <% if get_columns(params).include?("created_at") %>
+                <th class="sortable" sort-by='erp_targets_company_targets.created_at'>
+                    <%= t('.created_at') %>
+                </th>
+            <% end %>
+            <th width="7%"><%= t('.actions') %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @company_targets.each do |company_target| %>
+            <tr class="<%= 'blurred' if company_target.is_deleted? %>">
+                <td>
+                    <%= erp_datalist_check_row(id: company_target.id) %>
+                </td>
+                <% if get_columns(params).include?("name") %>
+                <td>
+                    <strong><%= company_target.name %></strong>
+                </td>
+                <% end %>
+                <% if get_columns(params).include?("period") %>
+                <td><%= company_target.period_name %></td>
+                <% end %>
+                <% if get_columns(params).include?("amount") %>
+                <td class="text-right"><%= format_price(company_target.amount) %></td>
+                <% end %>
+                <% if get_columns(params).include?("bonus_percent") %>
+                <td class="text-right"><%= company_target.bonus_percent %> %</td>
+                <% end %>
+                <% if get_columns(params).include?("status") %>
+                <td class="text-center">
+                    <%= status_label(company_target.status) %>
+                </td>
+                <% end %>
+                <% if get_columns(params).include?("creator") %>
+                <td>
+                    <%= erp_component('avatar', {
+                        user: company_target.creator
+                    }) %>
+                </td>
+                <% end %>
+                <% if get_columns(params).include?("created_at") %>
+                <td><%= format_date(company_target.created_at) %></td>
+                <% end %>
+                <td>
+                    <%= erp_datalist_row_actions(
+                        [
+                            {
+                                text: '<i class="fa fa-edit"></i> '+t('.edit'),
+                                url: erp_targets.edit_backend_company_target_path(company_target),
+                                hide: company_target.is_deleted?
+                            },
+                            {
+                                text: '<i class="fa fa-trash"></i> '+t('.delete'),
+                                url: erp_targets.set_deleted_backend_company_targets_path(id: company_target.id),
+                                data_method: 'PUT',
+                                data_confirm: t('delete_confirm'),
+                                class: 'ajax-link',
+                                hide: company_target.is_deleted?
+                            }
+                        ]
+                    ) %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<% if @company_targets.empty? %>
+    <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
+<% end %>
+    
+<%= erp_datalist_pagination(@company_targets) %>

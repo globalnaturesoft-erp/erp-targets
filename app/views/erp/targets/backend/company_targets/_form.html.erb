@@ -1,0 +1,62 @@
+<%= form_for([erp_targets, :backend, company_target], html: {multipart: true}) do |f| %>
+    <div class="form-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="portlet light bordered">
+                    <div class="portlet-body form">
+                        <%= erp_form_control("text", {
+                            name: 'company_target[name]',
+                            value: company_target.name,
+                            label: t('.name'),
+                            help: t('.help_name'),
+                            placeholder: t('.placeholder_name'),
+                            required: true,
+                            errors: company_target.errors.full_messages_for(:name)
+                        }) %>
+                        <%= erp_form_control("dataselect", {
+                            name: 'company_target[period_id]',
+                            value: company_target.period_id,
+                            text: company_target.period_name,
+                            placeholder: t('.choose_period'),
+                            label: t('.period'),
+                            url: erp_periods.dataselect_backend_periods_path(format: 'json'),
+                            required: true,
+                            errors: company_target.errors.full_messages_for(:period_id)
+                        }) %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="portlet light bordered">
+                    <div class="portlet-body form">
+                        <%= erp_form_control("number", {
+                            name: 'company_target[amount]',
+                            value: company_target.amount,
+                            label: t('.amount'),
+                            help: t('.help_amount'),
+                            placeholder: t('.placeholder_amount'),
+                            required: true,
+                            errors: company_target.errors.full_messages_for(:amount)
+                        }) %>
+                        <%= erp_form_control("number", {
+                            name: 'company_target[bonus_percent]',
+                            value: company_target.bonus_percent,
+                            label: t('.bonus_percent'),
+                            help: t('.help_bonus_percent'),
+                            placeholder: t('.placeholder_bonus_percent'),
+                            required: true,
+                            errors: company_target.errors.full_messages_for(:bonus_percent)
+                        }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('.submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('.cancel'),
+        href: erp_periods.backend_periods_path
+    }) %>
+<% end %>
