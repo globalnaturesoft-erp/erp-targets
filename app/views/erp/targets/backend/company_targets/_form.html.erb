@@ -20,6 +20,12 @@
                             placeholder: t('.choose_period'),
                             label: t('.period'),
                             url: erp_periods.dataselect_backend_periods_path(format: 'json'),
+                            create: {
+                                url: erp_periods.new_backend_period_path,
+                                title: t('.create'),
+                                container_selector: '.new_period',
+                                input_selector: 'input[name="period[name]"]'
+                            },
                             required: true,
                             errors: company_target.errors.full_messages_for(:period_id)
                         }) %>
