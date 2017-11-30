@@ -10,20 +10,20 @@
     <div class="col-md-3">
         <input type="hidden" name="target[target_details_attributes][<%= uid %>][id]" value="<%= target_detail.id %>">
         <input type="hidden" name="target[target_details_attributes][<%= uid %>][_destroy]" value="">
-        <%= erp_form_control("text", {
+        <%= erp_form_control("number", {
             name: 'target[target_details_attributes][' + uid + '][percent]',
             value: target_detail.percent,
             text: target_detail.percent
         }) %>
     </div>
     <div class="col-md-3">
-        <%= erp_form_control("text", {
+        <%= erp_form_control("number", {
             name: 'target[target_details_attributes][' + uid + '][commission_amount]',
             value: target_detail.commission_amount,
             text: target_detail.commission_amount
         }) %>
     </div>
-    <div class="col-md-3">        
+    <div class="col-md-3">
         <%= erp_form_control("addableform_remove_button", {
             is_nested_form: true
         }) %>
